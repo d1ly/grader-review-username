@@ -1,4 +1,4 @@
-CPATH='.;lib/hamcrest-core-1.3.jar;lib/junit-4.13.2.jar'
+CPATH='.:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar'
 
 rm -rf student-submission
 rm -rf grading-area
@@ -38,7 +38,7 @@ then
     exit 1
 fi
 
-java -cp "$CPATH;grading-area" org.junit.runner.JUnitCore TestListExamples > testOutput.txt
+java -cp "$CPATH:grading-area" org.junit.runner.JUnitCore TestListExamples > testOutput.txt
 cat testOutput.txt
 CORRECT=$(grep -o "OK" testOutput.txt)
 if [ $CORRECT == "OK" ]
